@@ -11,6 +11,18 @@
     <title>Login</title>
 </head>
 <body>
+<form action="/login.jsp" method="POST">
+    <label>Username:</label>
+    <input type="text" name="username" id="username" placeholder="Enter Username...">
+    <label>Password:</label>
+    <input type="password" name="password" id="password" placeholder="Enter Password...">
+    <button type="submit">Submit</button>
 
+    <%
+
+
+
+    %>
+</form>
 </body>
 </html>
