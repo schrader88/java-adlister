@@ -26,22 +26,23 @@
 %>
 
 <h1>People</h1>
-<c:forEach var="people" items="${people}">
-    <table>
+
+<table>
+    <tr>
+        <th>Person ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Person ID</th>
+    </tr>
+    <c:forEach var="people" items="${people}">
         <tr>
-            <th>Person #${people.id}</th>
+            <td>${people.id}</td>
+            <td>${people.firstName}</td>
+            <td>${people.lastName}</td>
+            <td>${people.age}</td>
         </tr>
-        <tr>
-            <td>First Name: ${people.firstName}</td>
-        </tr>
-        <tr>
-            <td>Last Name: ${people.lastName}</td>
-        </tr>
-        <tr>
-            <td>Age: ${people.age}</td>
-        </tr>
-    </table>
-</c:forEach>
+    </c:forEach>
+</table>
 
 <%@include file="display-extra-person.jsp"%>
 
