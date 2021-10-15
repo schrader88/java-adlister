@@ -9,8 +9,9 @@
 <html>
 <head>
     <title>Profile</title>
+    <%@ include file="partials/head.jsp"%>
 </head>
 <body>
-<form action=""></form>
+<%@ include file="partials/navbar.jsp"%>
 </body>
 </html>

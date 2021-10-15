@@ -10,8 +10,10 @@
 <html>
 <head>
     <title>Login</title>
+    <%@ include file="partials/head.jsp"%>
 </head>
 <body>
+<%@ include file="partials/navbar.jsp"%>
 <form action="/login.jsp" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" placeholder="Enter Username...">
@@ -31,14 +33,6 @@
         } catch (Exception e) {
 
         }
-
-//       if (request.getParameter("username") != null && request.getParameter("password") != null) {
-//           if (request.getParameter("username").equals("admin") && request.getParameter("password").equals("password")) {
-//               response.sendRedirect("/profile.jsp");
-//           } else {
-//               response.sendRedirect("/login.jsp");
-//           }
-//       }
     %>
 </form>
 </body>
