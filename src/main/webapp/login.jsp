@@ -22,16 +22,13 @@
     <button type="submit">Submit</button>
 
     <%
-        try {
-            while (request.getParameter("username") != null && request.getParameter("password") != null) {
-                if (request.getParameter("username").equals("admin") && request.getParameter("password").equals("password")) {
-                    response.sendRedirect("/profile.jsp");
-                } else {
-                    response.sendRedirect("/login.jsp");
-                }
-            }
-        } catch (Exception e) {
 
+        if (request.getParameter("username") != null && request.getParameter("password") != null) {
+            if (request.getParameter("username").equals("admin") && request.getParameter("password").equals("password")) {
+                response.sendRedirect("/profile.jsp");
+            } else {
+                response.sendRedirect("/login.jsp");
+            }
         }
     %>
 </form>
