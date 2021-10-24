@@ -1,5 +1,8 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
+@WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/registration")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO: show the registration form
@@ -26,7 +29,13 @@ public class RegisterServlet extends HttpServlet {
         boolean validEntries = (username != null) && (email != null) && (password != null);
 
         if (validEntries) {
-
+            User user = new User (
+                username,
+                email,
+                password
+            );
+            DaoFactory.getUsersDao().insert(user);
+            response.sendRedirect("/login");
         } else {
             response.sendRedirect("/register");
         }

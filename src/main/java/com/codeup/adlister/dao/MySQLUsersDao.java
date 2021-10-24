@@ -22,10 +22,6 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-//    Not quite done with method below, must find out how to return User object:
-
-//    WORK IN PROGRESS     //
-
     @Override
     public User findByUsername(String username) {
         try {

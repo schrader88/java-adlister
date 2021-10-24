@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Create an Account</h1>
-    <form action="/registration" method="POST">
+    <form method="POST">
         <div class="form-group">
             <label for="username">Username</label>
             <input id="username" name="username" class="form-control" type="text">
