@@ -31,18 +31,23 @@ public class MySQLUsersDao implements Users {
 
             ps.setString(1, username);
 
-            ResultSet rs = ps.executeQuery();
+            return extractUser(ps.executeQuery());
 
-            return new User (
-                    rs.getLong("id"),
-                    rs.getString("username"),
-                    rs.getString("email"),
-                    rs.getString("password")
-            );
         } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
+            throw new RuntimeException(sqlException);
         }
-        return null;
+    }
+
+    private User extractUser(ResultSet rs) throws SQLException {
+        if (!rs.next()) {
+            return null;
+        }
+        return new User (
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
+        );
     }
 
     @Override
