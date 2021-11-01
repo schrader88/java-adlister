@@ -5,12 +5,28 @@ public class Ad {
     private long userId;
     private String title;
     private String description;
+    private int priceInCents;
 
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
+    }
+
+    public Ad(long id, long userId, String title, String description, int priceInCents) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.priceInCents = priceInCents;
+    }
+
+    public Ad(long userId, String title, String description, int priceInCents) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.priceInCents = priceInCents;
     }
 
     public Ad(long userId, String title, String description) {
@@ -49,5 +65,13 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getPriceInCents() {
+        return priceInCents;
+    }
+
+    public void setPriceInCents(int priceInCents) {
+        this.priceInCents = priceInCents;
     }
 }
