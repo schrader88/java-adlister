@@ -17,7 +17,9 @@
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <p>${ad.priceInCents}</p>
-            <button type="submit">Increase Price to $100</button>
+            <form action="/ads?adId=${ad.id}" method="POST">
+                <button type="submit">Increase Price to $100</button>
+            </form>
         </div>
     </c:forEach>
 </div>

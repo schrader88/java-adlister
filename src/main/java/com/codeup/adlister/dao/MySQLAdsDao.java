@@ -57,8 +57,15 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public int changePriceTo10000(int price) {
-        return 0;
+    public void changePriceTo10000(long id) {
+        try {
+            String updateQuery = "UPDATE ads SET price_in_cents = 10000 WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException throwables) {
+            throw new RuntimeException("Error changing price of listing.", throwables);
+        }
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
